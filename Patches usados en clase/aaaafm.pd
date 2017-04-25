@@ -1,0 +1,44 @@
+#N canvas 23 63 905 571 16;
+#X obj 144 79 cnv 15 300 163 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X floatatom 238 122 5 0 0 0 - ramod amod;
+#X floatatom 323 122 5 0 0 0 - rfport fport;
+#X text 220 90 Amp mod;
+#X text 317 86 f port;
+#X floatatom 156 122 5 0 0 0 - rfmod fmod;
+#X text 153 89 f mod;
+#N canvas 201 163 658 418 fm 0;
+#X obj 143 41 osc~;
+#X obj 147 207 osc~;
+#X obj 146 160 +~;
+#X obj 145 89 *~;
+#X text 76 -13 f mod;
+#X text 340 8 A mod;
+#X text 367 75 f port;
+#X obj 142 -10 r fmod;
+#X obj 268 8 r amod;
+#X obj 353 103 r fport;
+#X obj 136 327 dac~;
+#X obj 151 273 *~;
+#X obj 217 230 r amp;
+#X msg 303 220 \; pd dsp \$1;
+#X obj 303 176 r on-off;
+#X msg 500 129 \; rfmod 100 \; ramod 432 \; rfport 141;
+#X obj 505 75 loadbang;
+#X connect 0 0 3 0;
+#X connect 1 0 11 0;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X connect 7 0 0 0;
+#X connect 8 0 3 1;
+#X connect 9 0 2 1;
+#X connect 11 0 10 0;
+#X connect 11 0 10 1;
+#X connect 12 0 11 1;
+#X connect 14 0 13 0;
+#X connect 16 0 15 0;
+#X restore 247 203 pd fm;
+#X obj 405 117 tgl 25 0 on-off empty empty 17 7 0 10 -260097 -1 -1
+0 1;
+#X obj 194 167 hsl 200 15 0 1 0 0 amp empty empty -2 -8 0 10 -262144
+-260097 -1 0 1;

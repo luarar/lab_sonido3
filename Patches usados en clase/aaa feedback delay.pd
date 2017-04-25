@@ -1,0 +1,17 @@
+#N canvas -10 87 983 570 16;
+#X obj 132 178 delwrite~ del 3000;
+#X obj 169 253 delread~ del;
+#X floatatom 224 213 5 0 0 0 - - -;
+#X obj 103 129 sfplay~;
+#X obj 108 418 output~;
+#X obj 168 333 *~;
+#X floatatom 195 298 5 0 1 0 - - -;
+#X connect 1 0 5 0;
+#X connect 2 0 1 0;
+#X connect 3 0 0 0;
+#X connect 3 0 4 0;
+#X connect 3 0 4 1;
+#X connect 5 0 4 0;
+#X connect 5 0 4 1;
+#X connect 5 0 0 0;
+#X connect 6 0 5 1;
