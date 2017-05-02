@@ -1,0 +1,43 @@
+#N canvas 110 71 1120 620 10;
+#X text 28 22 02/05 y(n) = x(n) + g.x(n-1) ec en diferencias del filtro
+Una forma de onda es una función. La expresión x(n) significa que
+n es dependiente de la señal X (nuestra sinusoide). En este caso \,
+y para medios digitales \, esta variable se representa como el sample
+rate. (nT) z es la cantidad de muestras que retrasa la señal con respecto
+a la original;
+#X obj 680 13 noise~;
+#X obj 529 267 spectrogram~;
+#X obj 680 190 output~;
+#X obj 680 139 +~;
+#X text 727 14 x(n);
+#X text 756 206 y(n);
+#X obj 750 108 *~;
+#X obj 750 59 delay~ 20;
+#X floatatom 801 31 5 0 0 0 - - -;
+#X floatatom 765 82 5 0 0 0 - - -;
+#X text 23 191 cuando comienzo a sumar muestras retrasadas \, las sucesivas
+ondas que se solapan comienzan a acercarse a la oposición de fase
+(0 \, 5 sample rate o f de nyquist) \, y anulan sus amplitudes. Esto
+produce el fenómeno de corte de ese espectro de frecuencias. En un
+ciclo completo hay 360º y x cantidad de muestras (nuestro sample rate).
+Al ir aumentando la frecuencia de la onda \, tengo menos muestras por
+cada ciclo que pasa. El límite es el número crítico donde se llega
+a la oposición de fase completa. ver pág. 74 Captura y Procesamiento
+- Cetta;
+#X text 801 82 1 pasa bajos -1 pasa altos;
+#X text 25 399 si utilizo un retraso de dos muestras y g negativo tengo
+un filtro pasabanda. Si en vez de eso uso un g positivo tengo un filtro
+de rechazo de banda un filtro no sólo cambia las amplitudes sino también
+las fases de las ondas componentes.;
+#X text 841 24 -1 \, 1 => hi \, low -2 \, 2 => pass y rechazo de b
+;
+#X text 26 528 www.pablocetta.com/preun/sonido_unidad1_indice.html
+;
+#X connect 1 0 4 0;
+#X connect 1 0 8 0;
+#X connect 4 0 3 0;
+#X connect 4 0 2 0;
+#X connect 7 0 4 1;
+#X connect 8 0 7 0;
+#X connect 9 0 8 1;
+#X connect 10 0 7 1;
